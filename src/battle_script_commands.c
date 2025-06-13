@@ -1520,21 +1520,23 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     if (defAbility == ABILITY_WONDER_SKIN && IsBattleMoveStatus(move) && moveAcc > 50)
         moveAcc = 50;
 
-    calc = gAccuracyStageRatios[buff].dividend * moveAcc;
-    calc /= gAccuracyStageRatios[buff].divisor;
+    calc = 10 * buff + moveAcc;
+    
+    //calc = gAccuracyStageRatios[buff].dividend * moveAcc;
+    //calc /= gAccuracyStageRatios[buff].divisor;
 
     // Attacker's ability
     switch (atkAbility)
     {
     case ABILITY_COMPOUND_EYES:
-        calc = (calc * 130) / 100; // 1.3 compound eyes boost
+        calc = calc + 30 ; // 1.3 compound eyes boost
         break;
     case ABILITY_VICTORY_STAR:
-        calc = (calc * 110) / 100; // 1.1 victory star boost
+        calc = calc + 10; // 1.1 victory star boost
         break;
     case ABILITY_HUSTLE:
         if (IsBattleMovePhysical(move))
-            calc = (calc * 80) / 100; // 1.2 hustle loss
+            calc = calc - 20; // 1.2 hustle loss
         break;
     }
 
@@ -1543,15 +1545,15 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     {
     case ABILITY_SAND_VEIL:
         if (HasWeatherEffect() && gBattleWeather & B_WEATHER_SANDSTORM)
-            calc = (calc * 80) / 100; // 1.2 sand veil loss
+            calc = calc - 20; // 1.2 sand veil loss
         break;
     case ABILITY_SNOW_CLOAK:
         if (HasWeatherEffect() && (gBattleWeather & (B_WEATHER_HAIL | B_WEATHER_SNOW)))
-            calc = (calc * 80) / 100; // 1.2 snow cloak loss
+            calc = calc - 20; // 1.2 snow cloak loss
         break;
     case ABILITY_TANGLED_FEET:
         if (gBattleMons[battlerDef].status2 & STATUS2_CONFUSION)
-            calc = (calc * 50) / 100; // 1.5 tangled feet loss
+            calc = calc - 50; // 1.5 tangled feet loss
         break;
     }
 
@@ -1560,7 +1562,7 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     {
     case ABILITY_VICTORY_STAR:
         if (IsBattlerAlive(atkAlly))
-            calc = (calc * 110) / 100; // 1.1 ally's victory star boost
+            calc = calc + 10; // 1.1 ally's victory star boost
         break;
     }
 
@@ -1568,11 +1570,11 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     switch (atkHoldEffect)
     {
     case HOLD_EFFECT_WIDE_LENS:
-        calc = (calc * (100 + atkParam)) / 100;
+        calc = calc + 10;
         break;
     case HOLD_EFFECT_ZOOM_LENS:
         if (GetBattlerTurnOrderNum(battlerAtk) > GetBattlerTurnOrderNum(battlerDef))
-            calc = (calc * (100 + atkParam)) / 100;
+            calc = calc + 20;
         break;
     }
 
@@ -1580,26 +1582,26 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     switch (defHoldEffect)
     {
     case HOLD_EFFECT_EVASION_UP:
-        calc = (calc * (100 - defParam)) / 100;
+       calc = calc - 10;
         break;
     }
 
     if (gBattleStruct->battlerState[battlerAtk].usedMicleBerry)
     {
         if (atkAbility == ABILITY_RIPEN)
-            calc = (calc * 140) / 100;  // ripen gives 40% acc boost
+            calc = calc + 40;  // ripen gives 40% acc boost
         else
-            calc = (calc * 120) / 100;  // 20% acc boost
+            calc = calc + 20;  // 20% acc boost
     }
 
     if (gFieldStatuses & STATUS_FIELD_GRAVITY)
-        calc = (calc * 5) / 3; // 1.66 Gravity acc boost
+        calc = calc + 60; // 1.66 Gravity acc boost
 
     if (B_AFFECTION_MECHANICS == TRUE && GetBattlerAffectionHearts(battlerDef) == AFFECTION_FIVE_HEARTS)
         calc = (calc * 90) / 100;
 
     if (HasWeatherEffect() && gBattleWeather & B_WEATHER_FOG)
-        calc = (calc * 60) / 100; // modified by 3/5
+        calc = calc - 40; // modified by 3/5
 
     return calc;
 }

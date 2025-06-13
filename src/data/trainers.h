@@ -15616,12 +15616,12 @@ F_TRAINER_FEMALE |
         {
             {
 #line 6311
-            .species = SPECIES_MAGIKARP,
+            .species = SPECIES_BINACLE,
             .gender = TRAINER_MON_RANDOM_GENDER,
 #line 6313
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6312
-            .lvl = 5,
+            .lvl = 9,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             },
@@ -15643,7 +15643,7 @@ F_TRAINER_FEMALE |
 #line 6321
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6320
-            .lvl = 15,
+            .lvl = 12,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             },
