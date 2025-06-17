@@ -239,9 +239,13 @@ Route102_EventScript_LivRematch::
 	end
 
 Route103_EventScript_Andrew::
-	trainerbattle_single TRAINER_ANDREW, Route103_Text_AndrewIntro, Route103_Text_AndrewDefeated
+	trainerbattle_single TRAINER_ANDREW, Route103_Text_AndrewIntro, Route103_Text_AndrewDefeated, Route103_EventScript_Andrew_Open102
 	msgbox Route103_Text_AndrewPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route103_EventScript_Andrew_Open102::
 	setvar VAR_OLDALE_TOWN_STATE, 2
+	release
 	end
 
 Route103_EventScript_Miguel::
