@@ -1520,7 +1520,7 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     if (defAbility == ABILITY_WONDER_SKIN && IsBattleMoveStatus(move) && moveAcc > 50)
         moveAcc = 50;
 
-    calc = 10 * buff + moveAcc;
+    calc = 10 * (buff-6) + moveAcc;
     
     //calc = gAccuracyStageRatios[buff].dividend * moveAcc;
     //calc /= gAccuracyStageRatios[buff].divisor;
@@ -1672,6 +1672,8 @@ static void AccuracyCheck(bool32 recalcDragonDarts, const u8 *nextInstr, const u
                                             GetBattlerAbility(battlerDef),
                                             holdEffectAtk,
                                             GetBattlerHoldEffect(battlerDef, TRUE));
+            
+                                            
 
             if (!RandomPercentage(RNG_ACCURACY, accuracy))
             {
@@ -1679,7 +1681,7 @@ static void AccuracyCheck(bool32 recalcDragonDarts, const u8 *nextInstr, const u
                 gBattleStruct->missStringId[battlerDef] = gBattleCommunication[MISS_TYPE] = B_MSG_MISSED;
                 numMisses++;
 
-                if (holdEffectAtk == HOLD_EFFECT_BLUNDER_POLICY)
+                if (holdEffectAtk == HOLD_EFFECT_BLUNDER_POLICY) 
                     gBattleStruct->blunderPolicy = TRUE;    // Only activates from missing through acc/evasion checks
 
                 if (effect == EFFECT_DRAGON_DARTS
@@ -1688,7 +1690,7 @@ static void AccuracyCheck(bool32 recalcDragonDarts, const u8 *nextInstr, const u
                     && CanTargetPartner(gBattlerAttacker, battlerDef)
                     && !TargetFullyImmuneToCurrMove(gBattlerAttacker, BATTLE_PARTNER(battlerDef)))
                 {
-                    // Smart target to partner if miss
+                    // Smart target to partner if miss 
                     numMisses = 0; // Other dart might hit
                     gBattlerTarget = BATTLE_PARTNER(battlerDef);
                     AccuracyCheck(TRUE, nextInstr, failInstr, move);

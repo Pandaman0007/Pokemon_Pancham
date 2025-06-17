@@ -1,4 +1,5 @@
-.set LOCALID_STEVEN, 19
+.set LOCALID_STEVEN, 18
+.set LOCALID_PIKACHU, 21
 
 Route118_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route118_OnTransition
@@ -49,6 +50,38 @@ Route118_EventScript_ReceivedGoodRod::
 	msgbox Route118_Text_TryCatchingMonWithGoodRod, MSGBOX_DEFAULT
 	release
 	end
+
+Route118_EventScript_Blocking_Pikachu::
+	goto_if_unset FLAG_DEFEATED_MAUVILLE_GYM, Route118_EventScript_Passing_Pikachu
+	msgbox Route118_Text_Blocking_Pikachu, MSGBOX_NPC
+	end	
+
+Route118_EventScript_Passing_Pikachu:
+	applymovement LOCALID_PIKACHU, Route118_Movement_Pass_Pikachu_UP
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Route118_Movement_Pass_Pikachu
+	waitmovement 0
+	applymovement LOCALID_PIKACHU, Route118_Movement_Pass_Pikachu_DOWN
+	waitmovement 0
+	releaseall
+	end	
+
+Route118_Movement_Pass_Pikachu:
+	walk_right
+	jump_2_down
+	step_end
+
+Route118_Movement_Pass_Pikachu_UP:
+	walk_up
+	step_end
+
+Route118_Movement_Pass_Pikachu_DOWN:
+	walk_down
+	step_end
+
+Route118_Text_Blocking_Pikachu:
+	.string "Trying to overlevel Rose?\n"
+	.string "I won't allow it$"
 
 Route118_EventScript_Girl::
 	msgbox Route118_Text_CanCrossRiversWithSurf, MSGBOX_NPC
@@ -187,10 +220,6 @@ Route118_EventScript_Rose::
 	end
 
 Route118_EventScript_RegisterRose::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route118_Text_RoseRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_ROSE_1
 	release
 	end
 
@@ -241,6 +270,7 @@ Route118_EventScript_Chester::
 	end
 
 Route118_EventScript_Deandre::
+	
 	trainerbattle_single TRAINER_DEANDRE, Route118_Text_DeandreIntro, Route118_Text_DeandreDefeat
 	msgbox Route118_Text_DeandrePostBattle, MSGBOX_AUTOCLOSE
 	end

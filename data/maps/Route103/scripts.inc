@@ -214,8 +214,6 @@ Route103_EventScript_Amy::
 	end
 
 Route102_EventScript_AmyRegisterMatchCallAfterBattle::
-	msgbox Route103_Text_AmyLivRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_AMY_AND_LIV_1
 	release
 	end
 
@@ -232,8 +230,6 @@ Route103_EventScript_Liv::
 	end
 
 Route102_EventScript_LivRegisterMatchCallAfterBattle::
-	msgbox Route103_Text_AmyLivRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_AMY_AND_LIV_1
 	release
 	end
 
@@ -244,23 +240,29 @@ Route102_EventScript_LivRematch::
 
 Route103_EventScript_Andrew::
 	trainerbattle_single TRAINER_ANDREW, Route103_Text_AndrewIntro, Route103_Text_AndrewDefeated
-	setvar VAR_OLDALE_TOWN_STATE, 1
 	msgbox Route103_Text_AndrewPostBattle, MSGBOX_AUTOCLOSE
+	setvar VAR_OLDALE_TOWN_STATE, 2
 	end
 
 Route103_EventScript_Miguel::
+	goto_if_set FLAG_DEFEATED_MAUVILLE_GYM, Route103_EventScript_Miguel_Refuses
 	trainerbattle_single TRAINER_MIGUEL_1, Route103_Text_MiguelIntro, Route103_Text_MiguelDefeated, Route102_EventScript_MiguelRegisterMatchCallAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route103_EventScript_MiguelRematch
 	msgbox Route103_Text_MiguelPostBattle, MSGBOX_DEFAULT
 	release
 	end
 
+
+Route103_EventScript_Miguel_Refuses::
+	msgbox Route103_Text_MiguelRefuses, MSGBOX_DEFAULT
+	release
+	end
+
+Route103_Text_MiguelRefuses:
+	.string "You're too strong\n"
+	.string "You can't have my berries$"	
+
 Route102_EventScript_MiguelRegisterMatchCallAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route103_Text_MiguelRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_MIGUEL_1
+	giveitem ITEM_CHERI_BERRY, 900
 	release
 	end
 

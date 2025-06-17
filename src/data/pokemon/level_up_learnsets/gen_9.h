@@ -19689,8 +19689,9 @@ static const struct LevelUpMove sEternatusLevelUpLearnset[] = {
 
 #if P_FAMILY_KUBFU
 static const struct LevelUpMove sKubfuLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 1, MOVE_LEER),
+    LEVEL_UP_MOVE( 1, MOVE_CRUSH_CLAW),
     LEVEL_UP_MOVE( 1, MOVE_ROCK_SMASH),
+    LEVEL_UP_MOVE( 3, MOVE_GRAVITY),
     LEVEL_UP_MOVE( 4, MOVE_ENDURE),
     LEVEL_UP_MOVE( 8, MOVE_FOCUS_ENERGY),
     LEVEL_UP_MOVE(12, MOVE_AERIAL_ACE),

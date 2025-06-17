@@ -203,11 +203,6 @@ OldaleTown_EventScript_FootprintsMan::
 OldaleTown_EventScript_BlockedPath::
 	lockall
 	applymovement OBJ_EVENT_ID_PLAYER, OldaleTown_Movement_PlayerStepBack
-	applymovement LOCALID_FOOTPRINTS_MAN, OldaleTown_Movement_BackUp
-	waitmovement 0
-	msgbox OldaleTown_Text_WaitDontComeInHere, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_FOOTPRINTS_MAN, OldaleTown_Movement_ReturnToOriginalPosition
 	waitmovement 0
 	releaseall
 	end

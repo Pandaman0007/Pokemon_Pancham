@@ -4862,12 +4862,11 @@ Class: Leader
 Pic: Leader Wattson
 Gender: Male
 Music: Male
-Items: Super Potion / Super Potion
 Double Battle: No
 AI: Basic Trainer
 
 Voltorb
-Level: 20
+Level: 12
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Rollout
 - Spark
@@ -4875,28 +4874,28 @@ IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Shock Wave
 
 Electrike
-Level: 20
+Level: 12
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Shock Wave
 - Leer
 - Quick Attack
 - Howl
 
-Magneton
-Level: 22
+Magneton @ Sitrus Berry
+Level: 14
 IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
-- Supersonic
+- Magnet Bomb
 - Shock Wave
 - Thunder Wave
-- Sonic Boom
+- Magnet Rise
 
-Manectric @ Sitrus Berry
-Level: 24
+Pikachu @ Light Ball
+Level: 13
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Quick Attack
-- Thunder Wave
-- Shock Wave
-- Howl
+- Double Team
+- Nuzzle
+- Volt Tackle
+- Spark
 
 === TRAINER_FLANNERY_1 ===
 Name: FLANNERY
@@ -6233,12 +6232,27 @@ Double Battle: No
 AI: Check Bad Move
 
 Aron
-Level: 15
+Level: 13
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Mud Slap
+- Endeavor
+- Screech
+- Rock Tomb
 
 Electrike
 Level: 13
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Nuzzle
+- Thundershock
+- Flash
+
+Zigzagoon @ Berry Juice
+Level: 13 
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Headbutt
+- Quick Attack
+- Belly Drum
+- Bite
 
 === TRAINER_WALLACE ===
 Name: WALLACE
@@ -6308,17 +6322,27 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Magikarp
-Level: 5
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Binacle
+Level: 9
+IVs: 0 HP / 0 Atk / 0 Def / 15 SpA / 0 SpD / 0 Spe
+- Mud Slap
+- Water Gun
+- Ancient Power
+- Rain Dance
 
 Tentacool
 Level: 10
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Acid Spray
+- Bubblebeam
+- Icy Wind
 
 Magikarp
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 12
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Splash
+- Aqua Jet
+- Rage
 
 === TRAINER_IVAN ===
 Name: IVAN
