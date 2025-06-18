@@ -188,10 +188,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
-      "x": 10,
-      "y": 13,
+      "x": 11,
+      "y": 10,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -266,14 +266,14 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 12,
+      "x": 15,
       "y": 15,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_MUSCLE_BAND",
+      "trainer_sight_or_berry_tree_id": "ITEM_SOFT_SAND",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_118_HYPER_POTION"
     },
@@ -403,10 +403,10 @@
     },
     {
       "type": "hidden_item",
-      "x": 17,
-      "y": 8,
+      "x": 8,
+      "y": 12,
       "elevation": 3,
-      "item": "ITEM_BURN_HEAL",
+      "item": "ITEM_HARD_STONE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_118_IRON"
     },
     {
@@ -416,6 +416,14 @@
       "elevation": 3,
       "item": "ITEM_HEART_SCALE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_118_HEART_SCALE"
+    },
+    {
+      "type": "sign",
+      "x": 31,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NULL"
     }
   ]
 }

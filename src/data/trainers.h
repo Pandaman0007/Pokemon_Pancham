@@ -12078,16 +12078,18 @@ F_TRAINER_FEMALE |
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
 #line 4887
-                MOVE_SUPERSONIC,
+                MOVE_MAGNET_BOMB,
                 MOVE_SHOCK_WAVE,
                 MOVE_THUNDER_WAVE,
-                MOVE_SONIC_BOOM,
+                MOVE_MAGNET_RISE,
             },
             },
             {
 #line 4892
             .species = SPECIES_PIKACHU,
             .gender = TRAINER_MON_RANDOM_GENDER,
+#line 4892
+            .heldItem = ITEM_LIGHT_BALL,
 #line 4894
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4893
@@ -12096,10 +12098,10 @@ F_TRAINER_FEMALE |
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
 #line 4895
-                MOVE_QUICK_ATTACK,
-                MOVE_THUNDER_WAVE,
-                MOVE_SHOCK_WAVE,
-                MOVE_HOWL,
+                MOVE_DOUBLE_TEAM,
+                MOVE_NUZZLE,
+                MOVE_VOLT_TACKLE,
+                MOVE_SPARK,
             },
             },
         },

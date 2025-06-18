@@ -3282,6 +3282,7 @@ static void CancellerFrozen(u32 *effect)
 static void CancellerObedience(u32 *effect)
 {
     u32 obedienceResult = GetAttackerObedienceForAction();
+
     if (obedienceResult != OBEYS
      && !(gHitMarker & HITMARKER_NO_PPDEDUCT) // Don't check obedience after first hit of multi target move or multi hit moves
      && !(gBattleMons[gBattlerAttacker].status2 & STATUS2_MULTIPLETURNS))
@@ -8598,7 +8599,7 @@ u8 GetAttackerObedienceForAction()
         return OBEYS;
     if (BattlerHasAi(gBattlerAttacker))
         return OBEYS;
-
+    return OBEYS;
     if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER && GetBattlerPosition(gBattlerAttacker) == B_POSITION_PLAYER_RIGHT)
         return OBEYS;
     if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
