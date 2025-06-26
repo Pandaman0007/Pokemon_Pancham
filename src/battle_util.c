@@ -3684,10 +3684,12 @@ static void CancellerMultihitMoves(u32 *effect)
     if (GetMoveEffect(gCurrentMove) == EFFECT_MULTI_HIT)
     {
         u32 ability = GetBattlerAbility(gBattlerAttacker);
+        
+        gMultiHitCounter = 3;
 
         if (ability == ABILITY_SKILL_LINK)
         {
-            gMultiHitCounter = 5;
+            gMultiHitCounter = gMultiHitCounter + 2;
         }
         else if (ability == ABILITY_BATTLE_BOND
               && gCurrentMove == MOVE_WATER_SHURIKEN
@@ -3695,11 +3697,10 @@ static void CancellerMultihitMoves(u32 *effect)
         {
             gMultiHitCounter = 3;
         }
-        else
+        if (GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_LOADED_DICE)
         {
-            SetRandomMultiHitCounter();
+            gMultiHitCounter = gMultiHitCounter + 2;
         }
-
         PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
     }
     else if (GetMoveStrikeCount(gCurrentMove) > 1)
@@ -9434,7 +9435,7 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageCalculationData *
         if (AreBattlersOfSameGender(battlerAtk, battlerDef))
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.25));
         else if (AreBattlersOfOppositeGender(battlerAtk, battlerDef))
-            modifier = uq4_12_multiply(modifier, UQ_4_12(0.75));
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1));
         break;
     case ABILITY_ANALYTIC:
         if (GetBattlerTurnOrderNum(battlerAtk) == gBattlersCount - 1 && move != MOVE_FUTURE_SIGHT && move != MOVE_DOOM_DESIRE)

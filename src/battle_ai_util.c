@@ -599,6 +599,11 @@ static inline void CalcDynamicMoveDamage(struct DamageCalculationData *damageCal
             expected *= 3;
             minimum *= 3;
         }
+        else if (abilityAtk == ABILITY_SKILL_LINK && holdEffectAtk == HOLD_EFFECT_LOADED_DICE)
+        {
+            expected *= 7;
+            minimum *= 7;            
+        }
         else if (abilityAtk == ABILITY_SKILL_LINK)
         {
             expected *= 5;
@@ -606,14 +611,13 @@ static inline void CalcDynamicMoveDamage(struct DamageCalculationData *damageCal
         }
         else if (holdEffectAtk == HOLD_EFFECT_LOADED_DICE)
         {
-            expected *= 9;
-            expected /= 2;
-            minimum *= 4;
+            expected *= 5;
+            minimum *= 5;
         }
         else
         {
             expected *= 3;
-            minimum *= 2;
+            minimum *= 3;
         }
         break;
     case EFFECT_ENDEAVOR:

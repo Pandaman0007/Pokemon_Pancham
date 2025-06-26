@@ -3,6 +3,9 @@
 .set LOCALID_RIVAL_ON_BIKE, 29
 .set LOCALID_BIRCH, 36
 .set LOCALID_PIKACHU, 37
+.set pikaX, 5
+.set pikaY, 13
+
 
 Route110_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, Route110_OnResume
@@ -71,16 +74,16 @@ Route110_EventScript_AquaGrunt4::
 
 Route110_EventScript_Pikachu::
 	lock
-	msgbox Route110_Text_Pikachu, MSGBOX_DEFAULT
 	goto_if_unset FLAG_DEFEATED_MAUVILLE_GYM, Route110_EventScript_Pikachu_Move
 	goto Route110_EventScript_Pikachu_Talks
 	release
 	end
 
 Route110_EventScript_Pikachu_Move::
-	checkobjectat 6, 13
-	goto_if VAR_RESULT, Route110_EventScript_Pikachu_Talks
+	checkobjectat 6, 13, VAR_RESULT
+	goto_if_eq VAR_RESULT, TRUE, Route110_EventScript_Pikachu_Talks
 	applymovement LOCALID_PIKACHU, Route110_Movement_Pikachu
+	waitmovement 0
 	release
 	end
 
@@ -1016,9 +1019,17 @@ Route110_Text_KeepAnEyeOutForRival:
 	.string "See you again, {PLAYER}{KUN}!$"
 
 Route110_Text_Pikachu:
-	.string "I am not moving$"
+	.string "I am not moving.$"
 
 Route110_Movement_Pikachu:
-	walk_left
+	walk_right
 	step_end
+
+Route110_Text_Pikachu_testing:
+	.string "X is \n"
+	.string "VAR_RESULT is blank.$"
+
+Route110_Text_Pikachu_testing2:
+	.string "X is  and Y is .\n"
+	.string "VAR_RESULT is .$"
 
