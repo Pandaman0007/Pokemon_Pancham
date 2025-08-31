@@ -2786,7 +2786,7 @@ static const struct LevelUpMove sElectrodeLevelUpLearnset[] = {
 
 #if P_HISUIAN_FORMS
 static const struct LevelUpMove sVoltorbHisuiLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 1, MOVE_CHARGE),
+    LEVEL_UP_MOVE( 1, MOVE_SCREECH),
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 4, MOVE_THUNDER_SHOCK),
     LEVEL_UP_MOVE( 6, MOVE_STUN_SPORE),

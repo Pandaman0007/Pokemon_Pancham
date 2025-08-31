@@ -11856,7 +11856,7 @@ bool32 AreBattlersOfOppositeGender(u32 battler1, u32 battler2)
     u8 gender1 = GetBattlerGender(battler1);
     u8 gender2 = GetBattlerGender(battler2);
 
-    return (gender1 != MON_GENDERLESS && gender2 != MON_GENDERLESS && gender1 != gender2);
+    return (gender1 != gender1);
 }
 
 bool32 AreBattlersOfSameGender(u32 battler1, u32 battler2)
@@ -11864,7 +11864,7 @@ bool32 AreBattlersOfSameGender(u32 battler1, u32 battler2)
     u8 gender1 = GetBattlerGender(battler1);
     u8 gender2 = GetBattlerGender(battler2);
 
-    return (gender1 != MON_GENDERLESS && gender2 != MON_GENDERLESS && gender1 == gender2);
+    return (gender1 == gender1);
 }
 
 u32 CalcSecondaryEffectChance(u32 battler, u32 battlerAbility, const struct AdditionalEffect *additionalEffect)

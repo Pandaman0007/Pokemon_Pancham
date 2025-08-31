@@ -192,8 +192,17 @@ Route110_EventScript_PlayerRidingAcroBike::
 	end
 
 Route110_EventScript_Edward::
-	trainerbattle_single TRAINER_EDWARD, Route110_Text_EdwardIntro, Route110_Text_EdwardDefeated
+	trainerbattle_single TRAINER_EDWARD, Route110_Text_EdwardIntro, Route110_Text_EdwardDefeated, Route110_EventScript_EdwardBossgift
 	msgbox Route110_Text_EdwardPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route110_Text_EdwardGiftText:
+	.string "Here, have my berries$"	
+
+Route110_EventScript_EdwardBossgift::
+	msgbox Route110_Text_EdwardGiftText, MSGBOX_AUTOCLOSE
+	giveitem ITEM_PECHA_BERRY, 900
+	release
 	end
 
 Route110_EventScript_Jaclyn::

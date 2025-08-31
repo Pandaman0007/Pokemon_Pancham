@@ -249,9 +249,9 @@ Route103_EventScript_Andrew_Open102::
 	end
 
 Route103_EventScript_Miguel::
-	goto_if_set FLAG_DEFEATED_MAUVILLE_GYM, Route103_EventScript_Miguel_Refuses
 	trainerbattle_single TRAINER_MIGUEL_1, Route103_Text_MiguelIntro, Route103_Text_MiguelDefeated, Route102_EventScript_MiguelRegisterMatchCallAfterBattle
 	msgbox Route103_Text_MiguelPostBattle, MSGBOX_DEFAULT
+	giveitem ITEM_CHERI_BERRY, 900
 	release
 	end
 
@@ -262,10 +262,10 @@ Route103_EventScript_Miguel_Refuses::
 	end
 
 Route103_Text_MiguelRefuses:
-	.string "You're too strong\n"
-	.string "You can't have my berries$"	
+	.string "Here, have my berries$"	
 
 Route102_EventScript_MiguelRegisterMatchCallAfterBattle::
+	msgbox Route103_Text_MiguelRefuses, MSGBOX_AUTOCLOSE
 	giveitem ITEM_CHERI_BERRY, 900
 	release
 	end

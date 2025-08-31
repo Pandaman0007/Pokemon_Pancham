@@ -632,17 +632,7 @@ Music: Female
 Double Battle: No
 AI: Basic Trainer
 
-Ferroseed @ Zoom Lens  
-Ability: Iron Barbs  
-Level: 10  
-Relaxed Nature  
-IVs: 0 Spe  
-- Spikes  
-- Stealth Rock  
-- Gyro Ball  
-- Thunder Wave 
-
-Roselia @ Life Orb  
+Roselia @ Black Sludge 
 Ability: Poison Point  
 Level: 12  
 Modest Nature  
@@ -650,7 +640,16 @@ IVs: 0 Atk / 0 Spe
 - Toxic Spikes  
 - Mega Drain  
 - Sludge  
-- Leech Seed  
+- Leech Seed
+
+Corsola @ Leftovers  
+Ability: Regenerator  
+Level: 12  
+IVs: 31 Atk  
+- Ingrain  
+- Aqua Ring  
+- Confuse Ray  
+- Life Dew
 
 Flabebe @ Big Root  
 Ability: Flower Veil  
@@ -3417,13 +3416,13 @@ IVs: 0 Atk
 
 Loudred @ Choice Specs  
 Ability: Scrappy  
-Level: 13  
+Level: 12  
 IVs: 0 Atk  
 - Echoed Voice  
 
 Toxel @ Life Orb  
 Ability: Static  
-Level: 14  
+Level: 13  
 Timid Nature  
 - Nuzzle  
 - Discharge  
